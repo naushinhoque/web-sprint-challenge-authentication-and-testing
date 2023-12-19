@@ -8,9 +8,9 @@
 
 ## Project Setup
 
-- Fork, clone, and `npm install`.
-- Build your database executing `npm run migrate`.
-- Run tests locally executing `npm test`.
+- _______Fork, clone, and `npm install`.
+- _______Build your database executing `npm run migrate`.
+- _______Run tests locally executing `npm test`.
 
 ## Project Instructions
 
@@ -20,7 +20,8 @@ Users must be able to call the `[POST] /api/auth/register` endpoint to create a 
 
 We also need to make sure nobody without the token can call `[GET] /api/jokes` and gain access to our dad jokes.
 
-We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and the `jsonwebtoken` library.
+_________We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and the `jsonwebtoken` library.
+------> imported both into auth-router
 
 ### MVP
 
