@@ -16,7 +16,9 @@
 
 Dad jokes are all the rage these days! In this challenge, you will build a real wise-guy application.
 
-Users must be able to call the `[POST] /api/auth/register` endpoint to create a new account, and the `[POST] /api/auth/login` endpoint to get a token.
+________Users must be able to call the `[POST] /api/auth/register` endpoint to create a new account, 
+
+________and the `[POST] /api/auth/login` endpoint to get a token.
 
 We also need to make sure nobody without the token can call `[GET] /api/jokes` and gain access to our dad jokes.
 
