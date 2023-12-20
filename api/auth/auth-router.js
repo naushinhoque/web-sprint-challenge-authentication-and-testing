@@ -34,15 +34,24 @@ router.post('/register', (req, res, next) => {
   */
  let user = req.body;
 
- const hash = bcrypt.hashSync(user.password, BCRYPT_ROUNDS);
+ if (!user.username || !user.password) {
+  return res.status(400).json({ message: 'username and password required'})
+ }
 
+ const hash = bcrypt.hashSync(user.password, BCRYPT_ROUNDS);
  user.password = hash;
 
  User.add(user)
       .then(saved => {
-        res.status(201).json({ message: `Great to have you, ${saved.username}`});
+        res.status(201).json({ id: saved.id, username: saved.username, password: saved.password });
       })
-      .catch(next)
+      .catch(error => {
+        if (error.message.includes('UNIQUE constraint failed: users.username')) {
+          return res.status(400).json({ message: 'username taken' })
+        }
+
+        next(error);
+      })
 });
 
 router.post('/login', (req, res) => {
